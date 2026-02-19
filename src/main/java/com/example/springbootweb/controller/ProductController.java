@@ -13,7 +13,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/products/")
+    @GetMapping("/products")
     public List<Product> getProducts() {
         return productService.getProducts();
     }
@@ -26,5 +26,15 @@ public class ProductController {
     @PostMapping("/products")
     public void addProduct(@RequestBody Product product) {
         productService.addProduct(product);
+    }
+
+    @PutMapping("/products")
+    public void updateProduct(@RequestBody Product product) {
+        productService.updateProduct(product);
+    }
+
+    @DeleteMapping("/products/{id}")
+    public void updateProduct(@PathVariable int id) {
+        productService.deleteProduct(id);
     }
 }
